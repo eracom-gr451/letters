@@ -70,6 +70,7 @@
 
 				// Actions
 
+				$( ".lettre-active" ).unbind();
 				$( ".lettre-active" ).removeClass("lettre-active");
 
 				// 1. on créé la prochaine lettre.
@@ -80,7 +81,12 @@
 
 				// on applique l'animation.
 
-				// console.log('position verticale: '+positionverticale);
+
+				$( ".lettre-no-"+numerotation ).bind( "click", function() {
+				  console.log("click");
+				  colorChange();
+				});
+
 
 				$( ".lettre-no-"+numerotation ).animate({
 					top: positionverticale+ "vh"
@@ -136,14 +142,7 @@
 			}
 
 
-			// ce qui se passe si on clique sur la lettre active
-
-			$(document).on('mouseover'), "h1", function() {
-				console.log("click");
-			  if ( $( this ).hasClass( "lettre-active" ) ) {
- 					console.log("bingo");
-	      }
-			};
+			
 
 			$('body').on('keypress',function ( event ) {
         
