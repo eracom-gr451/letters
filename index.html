@@ -41,11 +41,11 @@
 
 			var typecolor = "#eee";
 
-			var positionverticale = 76;
 			var hue = Math.floor((Math.random() * 360));
 
 			var saturation = 0;
 
+			var positionverticale = 90;
 
 			var vitesse = 1400;
 
@@ -61,11 +61,13 @@
 
 			var gameover = -16;
 
+
+
 			function ProchaineLettre() {
 
 				// Modification de variables globales
 
-				repeater = setTimeout(ProchaineLettre, 1000);
+				repeater = setTimeout(ProchaineLettre, vitesse);
 
 				numerotation = numerotation + 1;
 
@@ -86,14 +88,19 @@
 				$( ".lettre-active" ).unbind();
 				$( ".lettre-active" ).removeClass("lettre-active");
 
-				// 1. on créé la prochaine lettre.
+
+				// on créé la prochaine lettre:
 				$("body").append("<h1 class='lettre lettre-no-"+numerotation+"'>"+glyph+"</h1>");
 
 				// on donne un ID unique à l'élément
 				$( ".lettre-no-"+numerotation ).addClass("lettre-active");
 
-				// on applique l'animation.
+				// on applique du CSS à l'élément:
+
+				$( ".lettre-no-"+numerotation ).css({
+			      "left": position+"%",
 			      "color": "hsl("+hue+", "+saturation+"%, 50%)"
+			    });
 
 
 				$( ".lettre-no-"+numerotation ).bind( "click", function() {
@@ -102,18 +109,13 @@
 				});
 
 
+				// on applique l'animation.
+
 				$( ".lettre-no-"+numerotation ).animate({
 					top: positionverticale+ "vh"
-					}, 1000, "linear", function() {
+					}, vitesse, "linear", function() {
 					// Animation complete.
 				});
-
-				// on applique du CSS à un élément, exemple:
-
-				$( ".lettre-no-"+numerotation ).css({
-			      "left": position+"%",
-			      "color": typecolor
-			    });
 
 
 				if (positionverticale < gameover) {
@@ -141,6 +143,8 @@
 							console.log("called stop");
 	        }
 			}
+
+
 
 			function colorChange() {
 	      // Redefine global variable typecolor
