@@ -1,6 +1,7 @@
-<doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
+			<title>Letters</title>
 			<script src ="jquery-1.11.2.min.js"></script>
 			<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
@@ -90,7 +91,6 @@
 
 				$( ".lettre-no-"+numerotation ).css({
 			      "left": position+"%",
-			      "font-weight": "bolder",
 			      "color": typecolor
 			    });
 
@@ -126,21 +126,35 @@
 	      // random number from 0 to 360
 	      var hue = Math.floor((Math.random() * 360));
 	      typecolor = "hsl("+hue+", 100%, 50%)";
+
+	      // coloriser la lettre courante!
+	      $( ".lettre-no-"+numerotation ).css({
+			      "color": typecolor
+			  });
+
 			}
 
 
 			// ce qui se passe si on clique sur la lettre active
+
+			$(document).on('mouseover'), "h1", function() {
+				console.log("click");
+			  if ( $( this ).hasClass( "lettre-active" ) ) {
+ 					console.log("bingo");
+	      }
+			};
 
 			$('body').on('keypress',function ( event ) {
         
 			  var myChar = String.fromCharCode(event.which);
 
 			  if ( myChar == glyph ) {
-			  	console.log("bingo");
+			  	// console.log("bingo");
 			  	// on déclenche un changement de couleur 
 			  	colorChange();
 			  } else {
-			  	console.log("raté");
+			  	// console.log("raté");
+			  	// On pourrait produire un son d'erreur.
 			  }
         
     	});
@@ -148,8 +162,6 @@
     	
 			// on appelle la fonction une première fois pour déclencher le processus
 			ProchaineLettre();
-
-
 
 		}); // fin du Document Ready
 
