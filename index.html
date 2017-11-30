@@ -42,6 +42,10 @@
 			var typecolor = "#eee";
 
 			var positionverticale = 76;
+			var hue = Math.floor((Math.random() * 360));
+
+			var saturation = 0;
+
 
 			var vitesse = 1400;
 
@@ -65,6 +69,11 @@
 
 				numerotation = numerotation + 1;
 
+				// Fade to grey ?
+				saturation = saturation - 1;
+
+				hue = hue + 1;
+
 				glyph = alphabet[Math.floor(Math.random()*alphabet.length)];
 
 				// Déclaration de variables locales
@@ -84,6 +93,7 @@
 				$( ".lettre-no-"+numerotation ).addClass("lettre-active");
 
 				// on applique l'animation.
+			      "color": "hsl("+hue+", "+saturation+"%, 50%)"
 
 
 				$( ".lettre-no-"+numerotation ).bind( "click", function() {
@@ -135,8 +145,9 @@
 			function colorChange() {
 	      // Redefine global variable typecolor
 	      // random number from 0 to 360
-	      var hue = Math.floor((Math.random() * 360));
-	      typecolor = "hsl("+hue+", 100%, 50%)";
+	      hue = Math.floor((Math.random() * 360));
+	      saturation = 100;
+	      typecolor = "hsl("+hue+", "+saturation+"%, 50%)";
 
 	      // coloriser la lettre courante!
 	      $( ".lettre-no-"+numerotation ).css({
