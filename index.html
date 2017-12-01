@@ -2,9 +2,7 @@
 <html>
 	<head>
 			<title>Letters</title>
-			<script src ="jquery-1.11.2.min.js"></script>
-			<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-
+			
 			<style>
 			
 			body {
@@ -40,11 +38,13 @@
 			::-moz-selection {
 			  background: transparent; /* Gecko Browsers */
 			}
-
 			</style>
+			<script src="jquery-1.11.2.min.js"></script>
 	</head>
 	<body>
 	<script>
+
+		alert("début du JS");
 
 		$(document).ready(function() {
 
@@ -196,6 +196,8 @@
     	
 			// on appelle la fonction une première fois pour déclencher le processus
 			ProchaineLettre();
+
+			alert("fin du JS");
 
 		}); // fin du Document Ready
 
