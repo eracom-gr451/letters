@@ -62,17 +62,17 @@
 
 			var alphabet = new Array(
 				"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-				"e", "r", "a", "c", "o", "m",
 				"&","?",";",
 				"7", "5",
-				//"0", "1","2","3","4","5","6","7","8","9"
 				);
 
 			var glyph = 'x';
 
 			var gameover = -16;
 
-
+			/*
+				Notre fonction principale
+			*/
 
 			function ProchaineLettre() {
 
@@ -97,10 +97,10 @@
 
 
 				// on créé la prochaine lettre:
-				$("body").append("<h1 class='lettre lettre-no-"+numerotation+"'>"+glyph+"</h1>");
+				$("body").append("<h1 class='lettre' id='lettre-no-"+numerotation+"'>"+glyph+"</h1>");
 
-				// on donne un ID unique à l'élément
-				$( ".lettre-no-"+numerotation ).addClass("lettre-active");
+				// on donne une class unique à l'élément
+				$( "#lettre-no-"+numerotation ).addClass("lettre-active");
 
 				// on applique du CSS à l'élément:
 
@@ -109,48 +109,31 @@
 						"color": "hsl("+hue+", "+saturation+"%, "+luma+"%)"
 					});
 
-				$( ".lettre-no-"+numerotation ).bind( "click", function() {
-				  console.log("click");
-				  colorChange();
+				$( "#lettre-no-"+numerotation ).bind( "click", function() {
+					colorChange();
 				});
-
 
 				// on applique l'animation.
 
-				$( ".lettre-no-"+numerotation ).animate({
+				$( "#lettre-no-"+numerotation ).animate({
 					top: positionverticale+ "vh"
 					}, vitesse, "linear", function() {
 					// Animation complete.
 				});
 
-
 				if (positionverticale < gameover) {
-					
 					reset();
-
-					}
+				}
 
 				// on diminue la hauteur pour faire monter les lettres
-
 				positionverticale = positionverticale - 6;
 
 			}; // Fin de la fonction ProchaineLettre
 
 			function reset() {
-	        // on veut que les lettres recommencent depuis en bas
-	        positionverticale = 76;
-	        // reset font color:
+				// on veut que les lettres recommencent depuis en bas
+				positionverticale = 90;
 			}
-
-			function stop() {
-	        if (repeater) {
-	            clearTimeout(repeater);
-	            timer = 0;
-							console.log("called stop");
-	        }
-			}
-
-
 
 			function colorChange() {
 				// Redefine global variable typecolor
