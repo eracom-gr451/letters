@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-			<title>Letters</title>
-			
-			<style>
-			
+		<title>Letters</title>
+		<style>
+
 			body {
 				overflow: hidden;
 				background: #000;
 			}
 
 			@font-face {
-			    font-family: 'RobotoMono';
-			    src: url('fonts/robotomono-bold.woff2') format('woff2'),
-			         url('fonts/robotomono-bold.woff') format('woff');
-			    font-weight: bold;
-			    font-style: normal;
+				font-family: 'RobotoMono';
+				src: url('fonts/robotomono-bold.woff2') format('woff2'),
+						 url('fonts/robotomono-bold.woff') format('woff');
+				font-weight: bold;
+				font-style: normal;
 			}
 
 			.lettre {
@@ -28,23 +27,18 @@
 				padding: 0;
 			}
 
-			.lettre-active {
-				/*color: hotpink !important ;*/
-			}
-
 			::selection {
-			  background: transparent; /* WebKit/Blink Browsers */
+				background: transparent; /* WebKit/Blink Browsers */
 			}
 			::-moz-selection {
-			  background: transparent; /* Gecko Browsers */
+				background: transparent; /* Gecko Browsers */
 			}
-			</style>
-			<script src="jquery-1.11.2.min.js"></script>
+
+		</style>
+		<script src ="jquery-1.11.2.min.js"></script>
 	</head>
 	<body>
 	<script>
-
-		alert("début du JS");
 
 		$(document).ready(function() {
 
@@ -175,34 +169,23 @@
 
 			}
 
-
-			
-
 			$('body').on('keypress',function ( event ) {
-        
-			  var myChar = String.fromCharCode(event.which);
+				
+				var myChar = String.fromCharCode(event.which);
 
-			  if ( myChar == glyph ) {
-			  	// console.log("bingo");
-			  	// on déclenche un changement de couleur 
-			  	colorChange();
-			  } else {
-			  	// console.log("raté");
-			  	// On pourrait produire un son d'erreur.
-			  }
-        
-    	});
+				if ( myChar == glyph ) {
+					colorChange();
+				} else {
+					// console.log("raté");
+					// On pourrait produire un son d'erreur.
+				}
+				
+			});
 
-    	
-			// on appelle la fonction une première fois pour déclencher le processus
+			// On appelle la fonction une première fois pour déclencher le processus
 			ProchaineLettre();
 
-			alert("fin du JS");
-
-		}); // fin du Document Ready
-
-		
-
+		}); // Fin du Document Ready
 
 	</script>
 
