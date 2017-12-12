@@ -1,6 +1,6 @@
 # Letters (remix)
 
-Une version modifée du projet "Letters", créé par Nathan Meyer et [Luca Reichenbach](http://lucareichenbach.com/) dans le cadre du "Projet Canevas".
+Une version modifiée du projet "Letters", créé par Nathan Meyer et [Luca Reichenbach](http://lucareichenbach.com/) dans le cadre du "Projet Canevas".
 
 ![](letters-remix.png)
 
